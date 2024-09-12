@@ -1,0 +1,15 @@
+{% extends 'base.html '%}
+{% block conteudo %}
+
+    <h1>Lista de frutas</h1>
+    <ul>
+        {% for fruta in frutas %}
+        <li> {{ fruta }}</li>
+        {% endfor %}
+    </ul>
+    <form action="{{url_for('cadastrarFruta')}}" method="POST">
+        <label>Fruta</label>
+        <input type='text' name='fruta'>
+        <button>Adicionar</button>
+    </form>
+{% endblock conteudo %}

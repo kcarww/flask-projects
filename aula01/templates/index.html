@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+        <h2>Exemplo de integração!!!</h2>
+        <hr>
+        <ul>
+        {% for prod in produtos %}
+            <li>{{prod}}</li>
+        {% endfor %}
+        </ul>
+
+{% endblock conteudo %}
