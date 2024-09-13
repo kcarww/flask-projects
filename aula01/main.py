@@ -39,9 +39,18 @@ def cadastrarFruta():
     return render_template('formulario.html', frutas=frutas)
 
 
-@app.route('/filmes')
-def filmes():
-    url = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=3ddc9b92db4de6c6559569c67bd88a13"
+@app.route('/filmes/<filtro>')
+def filmes(filtro):
+    if filtro == 'populares':
+	    url = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=3ddc9b92db4de6c6559569c67bd88a13"
+    elif filtro == 'kids':
+        url = "https://api.themoviedb.org/3/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc&api_key=3ddc9b92db4de6c6559569c67bd88a13"
+    elif filtro == '2010':
+        url = "https://api.themoviedb.org/3/discover/movie?primary_release_year=2010&sort_by=vote_average.desc&api_key=3ddc9b92db4de6c6559569c67bd88a13"
+    elif filtro == 'drama':
+        url = "https://api.themoviedb.org/3/discover/movie?with_genres=18&sort_by=vote_average.desc&vote_count.gte=10&api_key=3ddc9b92db4de6c6559569c67bd88a13"
+    elif filtro == 'tom_cruise':
+        url = "https://api.themoviedb.org/3/discover/movie?with_genres=878&with_cast=500&sort_by=vote_average.desc&api_key=3ddc9b92db4de6c6559569c67bd88a13"
 
     resposta = urllib.request.urlopen(url)
 
