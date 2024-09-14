@@ -1,4 +1,4 @@
-# pylint: disable=E0401,C0116,C0114,C0115,C0103,C0301,W0311,E0001
+# pylint: disable=E0401,C0116,C0114,C0115,C0103,C0301,W0311,E0001,W0622
 import urllib.request
 import json
 from flask import Flask, render_template, request, redirect, url_for
