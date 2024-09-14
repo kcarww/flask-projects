@@ -102,7 +102,7 @@ def createCurso():
     return render_template('add-curso.html')
 
 @app.route('/atualizar-curso/<id>', methods=['GET', 'POST'])
-def updateCurso(id):
+def updateCurso(id: int):
     curso = Cursos.query.get(id)
     if request.method == 'POST':
         nome = request.form.get('nome')
@@ -116,6 +116,13 @@ def updateCurso(id):
         db.session.commit()
         return redirect(url_for('getCursos'))
     return render_template('update-curso.html', curso=curso)
+
+@app.route('/deletar-curso/<id>')
+def deleteCurso(id: int):
+    curso = Cursos.query.get(id)
+    db.session.delete(curso)
+    db.session.commit()
+    return redirect(url_for('getCursos'))
 
 if __name__ == '__main__':
     with app.app_context():
