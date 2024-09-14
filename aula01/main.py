@@ -1,10 +1,30 @@
-# pylint: disable=E0401,C0116,C0114,C0103,C0301,
+# pylint: disable=E0401,C0116,C0114,C0115,C0103,C0301,W0311,E0001
 import urllib.request
 import json
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
+from flask_sqlalchemy import SQLAlchemy 
+
+
+
+
 app = Flask(__name__)
 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/escola'
 
+db = SQLAlchemy(app)
+
+class Cursos(db.Model):
+    __tablename__ = 'cursos'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    nome = db.Column(db.String(255), nullable=False)
+    descricao = db.Column(db.String(255))
+    ch = db.Column(db.Integer)
+
+    
+    def __init__(self, nome, descricao, ch):
+        self.nome = nome
+        self.descricao = descricao
+        self.ch = ch
 @app.route('/')
 def main():
     produtos = [
@@ -60,7 +80,28 @@ def filmes(filtro):
 
     return render_template("filmes.html", filmes=jsondata['results'])
     # return jsondata
+    
+    
+@app.route('/cursos')
+def getCursos():
+    cursos = Cursos.query.all()
+    return render_template('cursos.html', cursos=cursos)
 
+
+@app.route('/add-curso', methods=['GET', 'POST'])
+def createCurso():
+    if request.method == 'POST':
+        nome = request.form.get('nome')
+        descricao = request.form.get('descricao')
+        ch = request.form.get('ch')
+
+        curso = Cursos(nome, descricao, ch)
+        db.session.add(curso)
+        db.session.commit()
+        return redirect(url_for('getCursos'))
+    return render_template('add-curso.html')
 
 if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
     app.run(debug=True)

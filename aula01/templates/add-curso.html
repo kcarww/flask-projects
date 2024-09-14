@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<h2 style="text-align: center;">Adicionar Novo Curso</h2>
+<hr>
+
+<div class="container">
+    <form action="{{url_for('createCurso')}}" method="POST" class="form-control">
+        <label>Nome</label>
+        <input class="form-control" type="text" name="nome" placeholder="Nome do curso" required>
+        <label>Descrição</label>
+        <input class="form-control" type="text" name="descricao" placeholder="Descrição do curso" required>
+        <label>CH</label>
+        <input class="form-control" type="number" name="ch" placeholder="CH do curso" required >
+        <button class="btn btn-success">Adicionar</button>
+    </form>
+</div>
+{% endblock conteudo %}
