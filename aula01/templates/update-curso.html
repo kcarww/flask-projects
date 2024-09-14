@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<h2 style="text-align: center;">Adicionar Novo Curso</h2>
+<hr>
+
+<div class="container">
+    
+
+    <form action="{{url_for('updateCurso', id=curso.id)}}" method="POST" class="form-control">
+        <label>Nome</label>
+        <input class="form-control" type="text" name="nome" placeholder="Nome do curso" value="{{curso.nome}}"required>
+        <label>Descrição</label>
+        <input class="form-control" type="text" name="descricao" placeholder="Descrição do curso" value="{{curso.descricao}}" required>
+        <label>CH</label>
+        <input class="form-control" type="number" name="ch" placeholder="CH do curso" value="{{curso.ch}}" required >
+        <button class="btn btn-success">Adicionar</button>
+    </form>
+</div>
+{% endblock conteudo %}

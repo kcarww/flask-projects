@@ -101,6 +101,22 @@ def createCurso():
         return redirect(url_for('getCursos'))
     return render_template('add-curso.html')
 
+@app.route('/atualizar-curso/<id>', methods=['GET', 'POST'])
+def updateCurso(id):
+    curso = Cursos.query.get(id)
+    if request.method == 'POST':
+        nome = request.form.get('nome')
+        descricao = request.form.get('descricao')
+        ch = request.form.get('ch')
+
+        curso.nome = nome
+        curso.descricao = descricao
+        curso.ch = ch
+
+        db.session.commit()
+        return redirect(url_for('getCursos'))
+    return render_template('update-curso.html', curso=curso)
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
