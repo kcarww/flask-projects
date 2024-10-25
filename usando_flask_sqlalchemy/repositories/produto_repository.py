@@ -14,7 +14,7 @@ class ProdutoRepositoryInterface(ABC):
     def create(self, produto: Produto):
         raise NotImplementedError
     
-    def update(self, produto: Produto):
+    def update(self, produto: Produto, id: int):
         raise NotImplementedError
     
     def delete(self, id: int):

@@ -25,6 +25,7 @@ def add_produto():
             preco=request.form.get('preco'),
             descricao=request.form.get('descricao') 
         )
+        
         use_case.execute(produto=produto)
         return redirect(url_for('add_produto'))
 

@@ -21,8 +21,13 @@ class ProdutoORMRepository(ProdutoRepositoryInterface):
         self.session.add(produto_model)
         self.session.commit()
 
-    def update(self, produto: Produto):
-        self.session.add(produto)
+    def update(self, produto: Produto, id: int):
+        produto_finded = self.session.query(ProdutoModel).get(id)
+        produto_finded.nome = produto.nome
+        produto_finded.descricao = produto.descricao
+        print(produto_finded.descricao, '<------ orm')
+        print(produto.descricao, '<------ entity')
+        produto_finded.preco = produto.preco
         self.session.commit()
 
     def delete(self, id: int):

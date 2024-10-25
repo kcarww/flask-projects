@@ -7,6 +7,5 @@ class UpdateProdutoUseCase:
     repo: ProdutoRepositoryInterface
     
     def execute(self, produto: Produto, id: int) -> Produto:
-        produto = self.repo.find(id)
-        self.repo.update(produto)
+        self.repo.update(produto, id)
         return produto
