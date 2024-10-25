@@ -13,6 +13,12 @@ class UserInMemoryRepository(UserRepositoryInterface):
             if user.id == id:
                 return user
         return None
+    
+    def find_by_username(self, username: str):
+        for user in self.items:
+            if user.username == username:
+                return user
+        return None
 
     def create(self, user: User):
         self.items.append(user)

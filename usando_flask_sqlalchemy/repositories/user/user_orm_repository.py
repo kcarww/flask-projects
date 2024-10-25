@@ -1,5 +1,5 @@
 from entities.user import User
-from repositories.produto.user_repository import UserRepositoryInterface
+from repositories.user.user_repository import UserRepositoryInterface
 from dataclasses import dataclass
 from app_config import db
 from models.user_model import UserModel
@@ -15,6 +15,9 @@ class UserORMRepository(UserRepositoryInterface):
 
     def find(self, id: int):
         return self.to_entity(self.session.query(UserModel).get(id))
+    
+    def find_by_username(self, username: str):
+        return self.to_entity(self.session.query(UserModel).filter_by(username=username).first())
 
     def create(self, user: User):
         user_model = self.to_model(user)
@@ -34,13 +37,13 @@ class UserORMRepository(UserRepositoryInterface):
     def to_entity(self, user_model: UserModel):
         return User(
             id=user_model.id,
-            username=user_model.nome,
+            username=user_model.username,
             password=user_model.password
         )
         
     def to_model(self, user: User):
         return UserModel(
             id=user.id,
-            username=user.nome,
+            username=user.username,
             password=user.password
         )

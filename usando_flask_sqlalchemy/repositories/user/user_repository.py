@@ -11,6 +11,9 @@ class UserRepositoryInterface(ABC):
     def find(self, id: int):
         raise NotImplementedError
     
+    def find_by_username(self, username: str):
+        raise NotImplementedError
+    
     def create(self, user: User):
         raise NotImplementedError
     

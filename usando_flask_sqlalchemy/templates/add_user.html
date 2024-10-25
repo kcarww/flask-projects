@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+    <div class="container">
+        <h2 class="text-center">Cadastro de Usuário</h2>
+        <form method="POST">
+            <label class="form-label" for="username">Username:</label>
+            <input class="form-control" type="text" name="username" id="username">
+            <label class="form-label" for="password">Password:</label>
+            <input class="form-control" type="text" name="password" id="password">
+            <button class="btn btn-primary mt-2" type="submit">Enviar</button>
+        </form>
+    </div>
+{% endblock conteudo %}
