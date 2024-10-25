@@ -1,7 +1,8 @@
 from dataclasses import dataclass
+from flask_login import UserMixin
 
 @dataclass(slots=True)
-class User:
+class User(UserMixin):
     id: int = None
     username: str = None
     password: str = None
