@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 from entities.produto import Produto
-from repositories.produto_repository import ProdutoRepositoryInterface
+from repositories.produto.produto_repository import ProdutoRepositoryInterface
 @dataclass(kw_only=True, slots=True)
 class ProdutoInMemoryRepository(ProdutoRepositoryInterface):
     items: list = field(default_factory=list)

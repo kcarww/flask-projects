@@ -1,5 +1,5 @@
 from entities.produto import Produto
-from repositories.produto_repository import ProdutoRepositoryInterface
+from repositories.produto.produto_repository import ProdutoRepositoryInterface
 from dataclasses import dataclass
 from app_config import db
 from models.produto_model import Produto as ProdutoModel
@@ -25,8 +25,6 @@ class ProdutoORMRepository(ProdutoRepositoryInterface):
         produto_finded = self.session.query(ProdutoModel).get(id)
         produto_finded.nome = produto.nome
         produto_finded.descricao = produto.descricao
-        print(produto_finded.descricao, '<------ orm')
-        print(produto.descricao, '<------ entity')
         produto_finded.preco = produto.preco
         self.session.commit()
 

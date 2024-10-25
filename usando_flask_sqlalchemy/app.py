@@ -1,12 +1,11 @@
 from app_config import app, db
 from flask import request, redirect, url_for, render_template
-from use_cases.create_produto import CreateProdutoUseCase
-from use_cases.listar_produto import ListProdutoUseCase
-from use_cases.delete_produto import DeleteProdutoUseCase
-from use_cases.update_produto import UpdateProdutoUseCase
-from use_cases.find_produto_by_id import FindProdutoByIdUseCase
-from repositories.produto_orm_repository import ProdutoORMRepository
-from repositories.produto_in_memory_repository import ProdutoInMemoryRepository
+from use_cases.produto_use_cases.create_produto import CreateProdutoUseCase
+from use_cases.produto_use_cases.listar_produto import ListProdutoUseCase
+from use_cases.produto_use_cases.delete_produto import DeleteProdutoUseCase
+from use_cases.produto_use_cases.update_produto import UpdateProdutoUseCase
+from use_cases.produto_use_cases.find_produto_by_id import FindProdutoByIdUseCase
+from repositories.produto.produto_orm_repository import ProdutoORMRepository
 from entities.produto import Produto
 
 
@@ -27,7 +26,7 @@ def add_produto():
         )
         
         use_case.execute(produto=produto)
-        return redirect(url_for('add_produto'))
+        return redirect(url_for('lista_produtos'))
 
     return render_template('add_produto.html')
 

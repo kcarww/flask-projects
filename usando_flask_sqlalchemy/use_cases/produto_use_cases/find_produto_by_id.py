@@ -1,5 +1,5 @@
 from entities.produto import Produto
-from repositories.produto_repository import ProdutoRepositoryInterface
+from repositories.produto.produto_repository import ProdutoRepositoryInterface
 from dataclasses import dataclass
 
 @dataclass(slots=True, kw_only=True)
