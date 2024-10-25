@@ -1,21 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-
-    <form method="POST">
-        <label for="nome">Nome:</label>
-        <input type="text" name="nome" id="nome">
-        <label for="preco">Preço:</label>
-        <input type="text" name="preco" id="preco">
-        <label for="descricao">Descrição:</label>
-        <input type="text" name="descricao" id="descricao">
-        <button type="submit">Enviar</button>
-    </form>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block conteudo %}
+    <div class="container">
+        <h2 class="text-center">Cadastro de Produtos</h2>
+        <form method="POST">
+            <label class="form-label" for="nome">Nome:</label>
+            <input class="form-control" type="text" name="nome" id="nome">
+            <label class="form-label" for="preco">Preço:</label>
+            <input class="form-control" type="text" name="preco" id="preco">
+            <label class="form-label" for="descricao">Descrição:</label>
+            <input class="form-control" type="text" name="descricao" id="descricao">
+            <button class="btn btn-primary mt-2" type="submit">Enviar</button>
+        </form>
+    </div>
+{% endblock conteudo %}

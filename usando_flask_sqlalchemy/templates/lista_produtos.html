@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<div class="container">
+    <h2 style="text-align: center;">Lista de Produtos</h2>
+<hr>
+<br><br>
+<table class="table table-bordered table-hover">
+	<thead class="table-dark">
+	    <tr>
+	      <th scope="col">Id</th>
+	      <th scope="col">Nome</th>
+	      <th scope="col">Preço</th>
+	      <th scope="col">Descrição</th>
+	      <th scope="col">Ações</th>
+	    </tr>
+  </thead>
+  <tbody>
+	{% for produto in produtos %}
+		<tr>
+			<td>{{produto.id}}</td>
+			<td>{{produto.nome}}</td>
+			<td>{{produto.preco}}</td>
+			<td>{{produto.descricao}}</td>
+			<td>
+				<a href="atualizar-produto/{{produto.id}}" class="btn btn-secondary btn-xs">Editar</a>
+				<a href="deletar-produto/{{produto.id}}" class="btn btn-danger btn-xs">Excluir</a>
+			</td>
+		</tr>
+	{% endfor %}
+	
+  </tbody>
+</table>
+</div>
+{% endblock conteudo %}

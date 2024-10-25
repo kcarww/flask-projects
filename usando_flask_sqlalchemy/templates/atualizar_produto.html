@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+    <div class="container">
+        <h2 class="text-center">Atualizar produto: {{produto.nome}}</h2>
+        <form action=""{{url_for('atualizar_produto', id=produto.id)}}"" method="POST">
+            <label class="form-label" for="nome">Nome:</label>
+            <input class="form-control" type="text" name="nome" id="nome" value={{produto.nome}}>
+            <label class="form-label" for="preco">Preço:</label>
+            <input class="form-control" type="text" name="preco" id="preco" value={{produto.preco}}>
+            <label class="form-label" for="descricao">Descrição:</label>
+            <input class="form-control" type="text" name="descricao" id="descricao" value={{produto.descricao}}>
+            <button class="btn btn-primary mt-2" type="submit">Enviar</button>
+        </form>
+    </div>
+{% endblock conteudo %}

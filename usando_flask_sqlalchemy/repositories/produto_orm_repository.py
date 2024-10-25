@@ -26,8 +26,7 @@ class ProdutoORMRepository(ProdutoRepositoryInterface):
         self.session.commit()
 
     def delete(self, id: int):
-        produto = self.find(id)
-        self.session.delete(produto)
+        self.session.delete(self.session.query(ProdutoModel).get(id))
         self.session.commit()
 
     def to_entity(self, produto_model: ProdutoModel):
