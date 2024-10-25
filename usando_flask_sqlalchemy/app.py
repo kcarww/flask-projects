@@ -1,13 +1,12 @@
 from app_config import app, db
 from flask import request, redirect, url_for, render_template
 from use_cases.create_produto import CreateProdutoUseCase
+from use_cases.listar_produto import ListProdutoUseCase
 from repositories.produto_orm_repository import ProdutoORMRepository
 from repositories.produto_in_memory_repository import ProdutoInMemoryRepository
 from entities.produto import Produto
 
-@app.route('/')
-def hello():
-    return 'Hello, World!'
+
 
 @app.route('/produtos', methods=['GET', 'POST'])
 def add_produto():
@@ -20,7 +19,9 @@ def add_produto():
         )
         use_case.execute(produto=produto)
         return redirect(url_for('add_produto'))
-    return render_template('add_produto.html')
+    list_use_case = ListProdutoUseCase(repo=ProdutoORMRepository())
+    produtos = list_use_case.execute()
+    return render_template('add_produto.html', produtos=produtos)
 
 if __name__ == '__main__':
     app.run()
