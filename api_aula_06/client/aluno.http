@@ -1,0 +1,38 @@
+# @name post_aluno
+POST http://127.0.0.1:5000/alunos
+Content-Type: application/json
+
+{
+    "nome": "Jonas",
+    "idade": 22,
+    "curso": "Python",
+    "nota": 7
+}
+
+###
+
+# @name get_alunos
+GET http://127.0.0.1:5000/alunos
+
+###
+
+# @name get_aluno
+GET http://127.0.0.1:5000/alunos/1
+
+###
+
+# @name put_aluno
+PUT http://127.0.0.1:5000/alunos/1
+Content-Type: application/json
+
+{
+    "nome": "Jonas Lopes",
+    "idade": 22,
+    "curso": "Python",
+    "nota": 8
+}
+
+###
+
+# @name delete_aluno
+DELETE http://127.0.0.1:5000/alunos/1
