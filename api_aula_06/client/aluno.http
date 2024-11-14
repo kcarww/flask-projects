@@ -1,11 +1,28 @@
+@access_token = {{generate_token.response.body.access_token}}
+
+###
+
+# @name generate_token
+POST http://127.0.0.1:5000/login
+Content-Type: application/json
+
+
+{
+    "username": "jonas",
+    "password": "123"
+}
+
+###
+
 # @name post_aluno
 POST http://127.0.0.1:5000/alunos
 Content-Type: application/json
+Authorization: Bearer {{access_token}}
 
 {
-    "nome": "Jonas",
+    "nome": "Jonas Macaua",
     "idade": 22,
-    "curso": "Python",
+    "curso": "Java",
     "nota": 7
 }
 
@@ -13,20 +30,23 @@ Content-Type: application/json
 
 # @name get_alunos
 GET http://127.0.0.1:5000/alunos
+Authorization: Bearer {{access_token}}
 
 ###
 
 # @name get_aluno
-GET http://127.0.0.1:5000/alunos/1
+GET http://127.0.0.1:5000/alunos/4
+Authorization: Bearer {{access_token}}
 
 ###
 
 # @name put_aluno
-PUT http://127.0.0.1:5000/alunos/1
+PUT http://127.0.0.1:5000/alunos/4
+Authorization: Bearer {{access_token}}
 Content-Type: application/json
 
 {
-    "nome": "Jonas Lopes",
+    "nome": "Jonas Macabro",
     "idade": 22,
     "curso": "Python",
     "nota": 8
@@ -35,4 +55,5 @@ Content-Type: application/json
 ###
 
 # @name delete_aluno
-DELETE http://127.0.0.1:5000/alunos/1
+DELETE http://127.0.0.1:5000/alunos/4
+Authorization: Bearer {{access_token}}

@@ -1,0 +1,34 @@
+# @name post_user
+POST http://127.0.0.1:5000/user
+Content-Type: application/json
+
+{
+    "username": "jonas",
+    "password": "123"
+}
+
+###
+
+# @name get_users
+GET http://127.0.0.1:5000/user
+
+###
+
+# @name get_user
+GET http://127.0.0.1:5000/user/1
+
+###
+
+# @name put_user
+PUT http://127.0.0.1:5000/user/1
+Content-Type: application/json
+
+{
+    "username": "jonas_lopes",
+    "password": "1234"
+}
+
+###
+
+# @name delete_user
+DELETE http://127.0.0.1:5000/user/3

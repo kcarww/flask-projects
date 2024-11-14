@@ -1,0 +1,8 @@
+# @name generate_token
+POST http://127.0.0.1:5000/login
+Content-Type: application/json
+
+{
+    "username": "jonas",
+    "password": "123"
+}

@@ -8,7 +8,6 @@ class Aluno(db.Model):
     idade = db.Column(db.Integer, nullable=False)
     curso = db.Column(db.String(50), nullable=False)
     nota = db.Column(db.Float, nullable=False)
-    apelido = db.Column(db.String(50), nullable=False)
 
     def to_dict(self):
         return {
