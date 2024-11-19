@@ -30,7 +30,8 @@ class CreateProdutoUseCase:
             preco=request.preco,
             qtd_estoque=request.qtd_estoque
         )
-        produto = self.repository.save(produto)
+        print(produto)
+        produto = self.repository.add(produto)
         return CreateProdutoResponse(
             id=produto.id,
             nome=produto.nome,
