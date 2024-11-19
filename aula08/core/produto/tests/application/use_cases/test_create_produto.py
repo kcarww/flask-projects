@@ -1,6 +1,4 @@
-from uuid import UUID
 from core.produto.application.use_cases.create_produto import CreateProdutoUseCase, CreateProdutoRequest
-from core.produto.domain.produto import Produto
 from core.produto.infra.in_memory_repository import InMemoryProdutoRepository
 
 class TestCreateProduto:
