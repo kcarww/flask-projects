@@ -4,7 +4,7 @@ Content-Type: application/json
 
 
 {
-    "nome": "Banana",
+    "nome": "Mouse Sem fio",
     "qtd_estoque": 10,
     "preco": 10.50
 }
@@ -12,7 +12,7 @@ Content-Type: application/json
 ###
 
 # @name get_produto
-GET http://127.0.0.1:5000/produtos/16eb4115-eb84-4d25-affe-832f235d67cd
+GET http://127.0.0.1:5000/produtos/5ce2873c-4b52-4dc9-a038-9416fad2bc28
 
 
 ###
@@ -28,7 +28,7 @@ PUT http://127.0.0.1:5000/produtos/5ce2873c-4b52-4dc9-a038-9416fad2bc28
 Content-Type: application/json
 
 {
-    "nome": "Macarrão",
+    "nome": "Mouse sem fio",
     "qtd_estoque": 11,
     "preco": 10.50
 }

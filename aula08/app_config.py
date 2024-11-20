@@ -20,3 +20,4 @@ ma = Marshmallow(app)
 
 from core.produto.model.produto_model import ProdutoModel
 from core.produto.view.produto_view import ProdutoView
+# from core.produto.schema.produto_schema import ProdutoSchema

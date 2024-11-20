@@ -8,6 +8,7 @@ from core.produto.application.use_cases.list_produto import *
 from core.produto.application.use_cases.update_produto import *
 from uuid import UUID
 from app_config import api
+from core.produto.schema.produto_schema import ProdutoSchema
 
 class ProdutoView(Resource):
     def __init__(self):
@@ -17,34 +18,30 @@ class ProdutoView(Resource):
         self.get_by_id_use_case = GetProdutoByIdUseCase(self.repository)
         self.list_use_case = ListProdutoUseCase(self.repository)
         self.update_use_case = UpdateProdutoUseCase(self.repository)
+        self.schema = ProdutoSchema()
+        self.schema_many = ProdutoSchema(many=True)
     
     def get(self, id: str = None):
         if id:
             produto = self.get_by_id_use_case.execute(GetProdutoRequest(UUID(id)))
-            return make_response({
-                "id": str(produto.id),
-                "nome": produto.nome,
-                "preco": produto.preco,
-                "qtd_estoque": produto.qtd_estoque
-            }, 200)
+            return make_response(self.schema.dump(produto), 200)
         else:
-            produtos = self.list_use_case.execute(ListProdutoRequest())
-            return make_response(produtos.data, 200)
+            produtos_response = self.list_use_case.execute(ListProdutoRequest())
+            produtos = produtos_response.data
+            return make_response(self.schema_many.dump(produtos), 200)
+            
             
 
     def post(self):
+        data = self.schema.load(request.json)
+
         input = CreateProdutoRequest(
-            nome=request.json['nome'],
-            preco=request.json['preco'],
-            qtd_estoque=request.json['qtd_estoque']
+            nome=data.nome,
+            preco=data.preco,
+            qtd_estoque=data.qtd_estoque
             )
         output = self.create_use_case.execute(input)
-        return make_response({
-            "id": str(output.id),
-            "nome": output.nome,
-            "preco": output.preco,
-            "qtd_estoque": output.qtd_estoque
-        }, 201)
+        return make_response(self.schema.dump(output), 201)
         
     def delete(self, id: str):
         self.delete_use_case.execute(DeleteProdutoRequest(UUID(id)))
