@@ -48,20 +48,16 @@ class ProdutoView(Resource):
         return make_response("", 204)
     
     def put(self, id: str):
+        data = self.schema.load(request.json)
         input = UpdateProdutoRequest(
             id=UUID(id),
-            nome=request.json['nome'],
-            preco=request.json['preco'],
-            qtd_estoque=request.json['qtd_estoque']
+            nome=data.nome,
+            preco=data.preco,
+            qtd_estoque=data.qtd_estoque
         )
         
         output = self.update_use_case.execute(input)
-        return make_response({
-            "id": str(output.id),
-            "nome": output.nome,
-            "preco": output.preco,
-            "qtd_estoque": output.qtd_estoque
-        }, 200)
+        return make_response(self.schema.dump(output), 200)
         
 
 

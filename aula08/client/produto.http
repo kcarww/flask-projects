@@ -24,11 +24,11 @@ GET http://127.0.0.1:5000/produtos
 ###
 
 # @name put_produto
-PUT http://127.0.0.1:5000/produtos/5ce2873c-4b52-4dc9-a038-9416fad2bc28
+PUT http://127.0.0.1:5000/produtos/3dc959c6-7504-457e-9cbe-1d8ceb6afe0a
 Content-Type: application/json
 
 {
-    "nome": "Mouse sem fio",
+    "nome": "Mouse commmm fio",
     "qtd_estoque": 11,
     "preco": 10.50
 }
