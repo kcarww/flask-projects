@@ -1,14 +1,14 @@
-from flask_restful import Resource
-from flask import request, jsonify, make_response
-from core.produto.infra.produto_orm_repository import ProdutoORMRepository
-from core.produto.application.use_cases.create_produto import  *
-from core.produto.application.use_cases.delete_produto import *
-from core.produto.application.use_cases.get_produto_by_id import *
-from core.produto.application.use_cases.list_produto import *
-from core.produto.application.use_cases.update_produto import *
 from uuid import UUID
-from app_config import api
+from flask_restful import Resource
+from flask import request, make_response
+from core.produto.infra.produto_orm_repository import ProdutoORMRepository
+from core.produto.application.use_cases.delete_produto import DeleteProdutoRequest,DeleteProdutoUseCase
+from core.produto.application.use_cases.create_produto import  CreateProdutoRequest,CreateProdutoUseCase
+from core.produto.application.use_cases.get_produto_by_id import GetProdutoByIdUseCase,GetProdutoRequest
+from core.produto.application.use_cases.list_produto import ListProdutoRequest,ListProdutoUseCase
+from core.produto.application.use_cases.update_produto import UpdateProdutoRequest,UpdateProdutoUseCase
 from core.produto.schema.produto_schema import ProdutoSchema
+from app_config import api
 
 class ProdutoView(Resource):
     def __init__(self):
