@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Ordem de Serviço</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Editar Ordem de Serviço</h2>
+    <form method="POST" action="{{ url_for('atualizar_ordem_servico') }}">
+        <input type="hidden" name="codigo" value="{{ ordem.codigo }}">
+        <div class="mb-3">
+            <label for="data" class="form-label">Data</label>
+            <input type="date" class="form-control" id="data" name="data" value="{{ ordem.data.strftime('%Y-%m-%d') }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="problema" class="form-label">Problema</label>
+            <textarea class="form-control" id="problema" name="problema" rows="3" required>{{ ordem.problema }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="solucao" class="form-label">Solução</label>
+            <textarea class="form-control" id="solucao" name="solucao" rows="3">{{ ordem.solucao }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="status" class="form-label">Status</label>
+            <select class="form-select" id="status" name="status" required>
+                <option value="Aberta" {% if ordem.status == 'Aberta' %}selected{% endif %}>Aberta</option>
+                <option value="Em Andamento" {% if ordem.status == 'Em Andamento' %}selected{% endif %}>Em Andamento</option>
+                <option value="Concluída" {% if ordem.status == 'Concluída' %}selected{% endif %}>Concluída</option>
+                <option value="Cancelada" {% if ordem.status == 'Cancelada' %}selected{% endif %}>Cancelada</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="matricula_funcionario" class="form-label">Funcionário</label>
+            <select class="form-select" id="matricula_funcionario" name="matricula_funcionario" required>
+                <option value="">Selecione...</option>
+                {% for funcionario in funcionarios %}
+                <option value="{{ funcionario.matricula }}" {% if ordem.matricula_funcionario == funcionario.matricula %}selected{% endif %}>{{ funcionario.nome }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <a href="{{ url_for('listar_ordens_servico') }}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

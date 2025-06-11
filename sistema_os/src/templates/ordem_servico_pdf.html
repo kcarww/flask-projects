@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Ordem de Serviço #{{ ordem.codigo }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        h2 { border-bottom: 1px solid #ccc; padding-bottom: 10px; }
+        .info { margin-bottom: 20px; }
+        .label { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h2>Ordem de Serviço #{{ ordem.codigo }}</h2>
+    <div class="info">
+        <div><span class="label">Data:</span> {{ ordem.data }}</div>
+        <div><span class="label">Funcionário:</span> {{ ordem.funcionario.nome }}</div>
+        <div><span class="label">Status:</span> {{ ordem.status }}</div>
+    </div>
+    <div>
+        <div><span class="label">Problema:</span></div>
+        <div>{{ ordem.problema }}</div>
+    </div>
+    <div style="margin-top: 20px;">
+        <div><span class="label">Solução:</span></div>
+        <div>{{ ordem.solucao }}</div>
+    </div>
+</body>
+</html>
