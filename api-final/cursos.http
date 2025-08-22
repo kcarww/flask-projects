@@ -1,0 +1,9 @@
+# @name post_curso
+POST http://localhost:5000/api/cursos
+Content-Type: application/json
+
+{
+  "nome": "Arquitetura limpa",
+  "descricao": "Curso sobre arquitetura limpa",
+  "horas": 20
+}

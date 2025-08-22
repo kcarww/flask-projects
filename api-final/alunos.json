@@ -1,0 +1,68 @@
+[
+    {
+        "matricula": "20231002",
+        "nome": "Maria Oliveira",
+        "idade": 22,
+        "curso": "Ciências da Computação"
+    },
+    {
+        "matricula": "20231003",
+        "nome": "Pedro Santos",
+        "idade": 21,
+        "curso": "Sistemas de Informação"
+    },
+    {
+        "matricula": "20231004",
+        "nome": "Ana Costa",
+        "idade": 19,
+        "curso": "Engenharia Elétrica"
+    },
+    {
+        "matricula": "20231005",
+        "nome": "João Silva",
+        "idade": 20,
+        "curso": "Engenharia de Software"
+    },
+    {
+        "nome": "João Silva",
+        "idade": 20,
+        "curso": "Engenharia de Software",
+        "matricula": "20231006"
+    },
+    {
+        "nome": "João Silva Cavalcante",
+        "idade": 20,
+        "curso": "Engenharia de Software",
+        "matricula": "20231007"
+    },
+    {
+        "matricula": "20231007",
+        "nome": "Jonas Oliveira da Silva",
+        "idade": 20,
+        "curso": "Engenharia"
+    },
+    {
+        "matricula": "20231008",
+        "nome": "Joana Silva",
+        "idade": 20,
+        "curso": "Engenharia"
+    },
+    {
+        "matricula": "516316",
+        "nome": "Maria Oliveira",
+        "idade": 22,
+        "curso": "Matemática"
+    },
+    {
+        "matricula": "670141",
+        "nome": "Shortness",
+        "idade": 32,
+        "curso": "Engenharia de Software"
+    },
+    {
+        "matricula": "844631",
+        "nome": "Shortnesssss",
+        "idade": 32,
+        "curso": "Engenharia de Software"
+    }
+]

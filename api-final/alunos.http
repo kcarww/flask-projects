@@ -1,0 +1,41 @@
+# @name get_alunos
+GET http://localhost:5000/api/alunos
+
+###
+
+# @name get_aluno
+GET http://localhost:5000/api/alunos/20231001
+
+###
+
+# @name post_aluno
+POST http://localhost:5000/api/alunos
+Content-Type: application/json
+
+{
+  "nome": "Shortnesssss",
+  "idade": 32,
+  "curso": "Engenharia de Software"
+}
+
+
+###
+
+# @name put_aluno
+PUT http://localhost:5000/api/alunos/20231001
+Content-Type: application/json
+
+{
+  "nome": "João Silva Cavalcante",
+  "idade": 32,
+  "curso": "Engenharia de Software"
+}
+
+###
+
+# @name delete_aluno
+DELETE http://localhost:5000/api/alunos/20231001
+
+
+###
+

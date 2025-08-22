@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "nome": "Introdu\u00c3\u00a7\u00c3\u00a3o \u00c3\u00a0 Programa\u00c3\u00a7\u00c3\u00a3o",
+        "descricao": "Aprenda os conceitos b\u00c3\u00a1sicos de programa\u00c3\u00a7\u00c3\u00a3o usando Python.",
+        "horas": 400
+    },
+    {
+        "id": 2,
+        "nome": "Curso Avan\u00e7ado de Python",
+        "descricao": "Aprofunde seus conhecimentos em Python com este curso avan\u00e7ado.",
+        "horas": 300
+    },
+    {
+        "id": 8725,
+        "nome": "javascript Avan\u00e7ado",
+        "descricao": "Curso avan\u00e7ado de javascript",
+        "horas": 40
+    },
+    {
+        "id": 7525,
+        "nome": "Arquitetura limpa",
+        "descricao": "Curso sobre arquitetura limpa",
+        "horas": 20
+    }
+]

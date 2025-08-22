@@ -1,0 +1,26 @@
+[
+    {
+        "id": "5de6c7e0-bd30-40a1-bcab-8d154d4d6a8b",
+        "login": "teste123",
+        "email": "teste@email.com",
+        "senha_hash": "032d72c08778854747398ce6d075fb4add67b5dd4ab7f1a58467227fa59c7d18"
+    },
+    {
+        "id": "60a0d255-908b-420d-b47c-d1c1efa14448",
+        "login": "teste_use_case",
+        "email": "teste_use_case@email.com",
+        "senha_hash": "032d72c08778854747398ce6d075fb4add67b5dd4ab7f1a58467227fa59c7d18"
+    },
+    {
+        "id": "f2f1607f-ac67-4757-bb46-08d99dd3c8e2",
+        "login": "teste_auth",
+        "email": "teste_auth@email.com",
+        "senha_hash": "032d72c08778854747398ce6d075fb4add67b5dd4ab7f1a58467227fa59c7d18"
+    },
+    {
+        "id": "e8ff797e-1760-4651-827b-409c4af252d5",
+        "login": "zuninZoiao",
+        "email": "carlos.oe.cc@gmail.com",
+        "senha_hash": "fc0263439f39228c2a8c230da63b2a368e278d6be2db4be803b8eac48767f249"
+    }
+]
